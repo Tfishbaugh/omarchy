@@ -207,6 +207,10 @@ Item {
     return MediaModel.labelFor(player)
   }
 
+  function sourceDetail(player) {
+    return MediaModel.sourceDetail(player)
+  }
+
   function osdMessage(player, fallback) {
     return MediaModel.osdMessage(player, fallback)
   }
