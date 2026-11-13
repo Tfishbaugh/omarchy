@@ -53,6 +53,8 @@ const trackSignature = media.trackSignature(track)
 assert(!media.trackChanged(trackSignature, { ...track }), 'media detects unchanged track metadata')
 assert(media.trackChanged(trackSignature, { ...track, trackTitle: 'Next song' }), 'media detects changed track metadata')
 assertEqual(media.labelFor({ trackTitle: 'Song', identity: 'Spotify' }), 'Song', 'media labels players by track first')
+assertEqual(media.sourceDetail({ trackTitle: 'Song', trackArtist: 'Artist', identity: 'Spotify' }), 'Artist · Spotify', 'media names the app on a source row')
+assertEqual(media.sourceDetail({ trackArtist: 'Artist', identity: 'Spotify' }), 'Artist', 'media names the app once when the title is the app')
 assertEqual(media.osdMessage({ trackTitle: 'Song', trackArtist: 'Artist' }, 'Fallback'), 'Song - Artist', 'media builds OSD messages')
 assertEqual(media.osdMessage(null, 'Fallback'), 'Fallback', 'media falls back OSD messages')
 
